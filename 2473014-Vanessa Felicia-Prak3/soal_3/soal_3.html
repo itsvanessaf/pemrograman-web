@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+</head>
+<script>
+    function validasi() {
+    var input = document.getElementById("email");
+    if(!input.value.includes("@")){
+                            input.setCustomValidity(
+                            "Sertakan '@' pada alamat email ini. '" + input.value + "' tidak memiliki '@'."
+                            );
+                        } else {
+                            input.setCustomValidity("");
+                        } 
+    }
+</script>
+<body>
+    <table border="1" cellspacing="0" style="height: 350px; width: 400px;">
+        <tr>
+            <td>
+            <form>
+                <h1><b>Form Tambah Data User</b></h1>
+                <table style="height: 300px; width: 350px; font-size: large">
+                    <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td><input type="text" id="name" name="name" size="25" required
+                        oninvalid="this.setCustomValidity('Name is required!!!')"
+                        oninput="this.setCustomValidity('')"></td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>:</td>
+                        <td><input type="text" id="address" name="address" size="25" required
+                        oninvalid="this.setCustomValidity('Address is required!!!')"
+                        oninput="this.setCustomValidity('')"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td><input type="text" id="email" name="email" size="25" required
+                        oninvalid="this.setCustomValidity('Harap isi bidang ini.')"
+                        oninput="validasi();"></td>
+                    </tr>
+                    <tr>
+                        <td>Home Page</td>
+                        <td>:</td>
+                        <td><input type="text" name="homepage" size="25"></td>
+                    </tr>
+                    <tr>
+                        <td>Birthday</td>
+                        <td>:</td>
+                        <td><input type="date" name="birthday"></td>
+                    </tr>
+                    <tr>
+                        <td>Favorit Color</td>
+                        <td>:</td>
+                        <td><input type="color" name="favcolor"></td>
+                    </tr>
+                    <tr>
+                        <td>IPK</td>
+                        <td>:</td>
+                        <td><input type="number" name="ipk" min="0" max="4" step="0.1" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>:</td>
+                        <td><input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{7,10}"></td>
+                    </tr>
+                    <tr>
+                       <td colspan="3" align="center"><input type="submit" value="Add"></td> 
+                    </tr>
+                 </table>
+            </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
