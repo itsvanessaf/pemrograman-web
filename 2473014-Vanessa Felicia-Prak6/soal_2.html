@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+        table {
+            border: 1px solid black;
+            font-size: 20px;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function show_prompt() {
+            let num;
+
+            do {
+                num = prompt("A number?");
+            } while (num === null || num === "" || isNaN(num));
+
+            num = parseInt(num);
+
+            let hasil = "<table cellpadding='10px'>";
+
+            for (let i = 1; i <= num; i++) {
+                hasil += "<tr>";
+                hasil += "<td>" + i + "</td>";
+                hasil += "<td>x</td>";
+                hasil += "<td>" + num + "</td>";
+                hasil += "<td>=</td>";
+                hasil += "<td>" + (i * num) + "</td>";
+                hasil += "</tr>";
+            }
+
+            hasil += "</table>";
+            document.body.innerHTML = hasil;
+        }
+    </script>
+</head>
+<body onload="show_prompt()">
+</body>
+</html>

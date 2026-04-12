@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+        .piramida {
+            border-collapse: collapse;
+        }
+
+        .piramida td {
+            width: 60px;
+            height: 80px;
+            border: 1px solid white;
+            background-color: orange;
+        }
+
+        .piramida td.kosong {
+            background-color: transparent;
+            border: none;
+        }
+
+        .container {
+            width: 800px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    </style>
+    <script>
+        function buat_piramida() {
+            let tinggiPiramida = document.getElementById("tinggiPiramida").value;
+
+            if (isNaN(tinggiPiramida) || tinggiPiramida == "") {
+                alert("Mohon maksukkan angka.");
+                return;
+            }
+
+            tinggiPiramida = parseInt(tinggiPiramida);
+
+            let hasil = "<table cellpadding='0px' cellspacing='1px' class='piramida'>";
+
+            let lebar = 2 * tinggiPiramida - 1;
+            let tengah = Math.floor(lebar / 2);
+
+            for (let i = 0; i < tinggiPiramida; i++) {
+                hasil += "<tr>";
+
+                for (let j = 0; j < lebar; j++) {
+                    if (j >= tengah - i && j <= tengah + i) {
+                        hasil += "<td></td>";
+                    } else {
+                        hasil += "<td class='kosong'></td>";
+                    }
+                }
+                hasil += "</tr>";
+            }
+            hasil += "</table>";
+            document.getElementById("hasil").innerHTML = hasil;
+    }
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>Tinggi Piramida</td>
+                <td>:</td>
+                <td><input type="text" name="tinggiPiramida" id="tinggiPiramida"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="proses" onclick="buat_piramida()"></td>
+            </tr>
+        </table>
+        <div class="container" id="hasil"></div>
+    </form>
+</body>
+</html>

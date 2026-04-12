@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+        table {
+            border: 2px solid grey;
+            width: 350px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        td.right {
+            text-align: right;
+        }
+        
+        td.center {
+            text-align: center;
+        }
+
+        .button {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function number_convert() {
+            let inputAngka = document.getElementById("inputAngka").value;
+            let pilihan = document.getElementById("konversi").value;
+
+            if (inputAngka === "") { 
+                alert("Input tidak boleh kosong.");
+                return;
+            }
+
+            if (pilihan == "decimal-biner") {
+
+                let num = parseInt(inputAngka);
+
+                if (isNaN(num) || num < 0 || num > 255) {
+                    alert("Masukkan angka 0 - 255.");
+                    return;
+                }
+
+                let hasil = "";
+
+                do {
+                    let sisa = num % 2;
+                    hasil = sisa + hasil; 
+                    num = Math.floor(num / 2);
+                } while (num > 0);
+
+                document.getElementById("output").value = hasil;
+
+            } else if (pilihan == "biner-decimal") {
+
+                let binaryRegex = /^[01]+$/;
+
+                if (!binaryRegex.test(inputAngka)) {
+                    alert("Hanya boleh memasukkan angka 0 dan 1.");
+                    return;
+                }
+                if (inputAngka.length > 8) {
+                    alert("Maksimal memasukkan 8 digit.");
+                    return;
+                }
+
+                let hasil = 0;
+                let panjang = inputAngka.length;
+
+                for (let i = 0; i < panjang; i++) {
+                    let digit = inputAngka[i];
+                    if (digit == "1") {
+                        hasil += Math.pow(2, panjang - 1 - i);
+                    }
+                }
+
+                document.getElementById("output").value = hasil;
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <form>
+        <table cellpadding="5px">
+            <tr>
+                <td class="right">Input :</td>
+                <td><input type="text" name="Input" id="inputAngka"></td>
+            </tr>
+            <tr>
+                <td class="right">Output :</td>
+                <td><input type="text" name="Output" id="output" style="color: grey;" readonly></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="center">
+                    <select name="konversi" id="konversi">
+                        <option value="decimal-biner">decimal-biner</option>
+                        <option value="biner-decimal">biner-decimal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="center">
+                    <input type="button" value="PROSES" class="button" onclick="number_convert()">&nbsp;&nbsp;
+                    <input type="reset" value="RESET" class="button">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

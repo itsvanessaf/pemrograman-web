@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+        .table2 {
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .table2 td {
+            border: 1px solid black;
+            width: 60px;
+        }
+    </style>
+    <script>
+        function hitung() {
+            let pertama = document.getElementById("pertama").value;
+            let kedua = document.getElementById("kedua").value;
+
+            if (isNaN(pertama) && isNaN(kedua)) {
+                alert("angka pertama dan kedua harus angka.");
+                return;
+            } else if (isNaN(pertama)) {
+                alert("angka pertama bukan angka.");
+                return;
+            } else if (isNaN(kedua)) {
+                alert("angka kedua harus angka.");
+                return;
+            }
+
+            pertama = parseInt(pertama);
+            kedua = parseInt(kedua);
+
+            let tambah = pertama + kedua;
+            let kurang = pertama - kedua;
+
+            document.getElementById("a1").innerHTML = pertama;
+            document.getElementById("a2").innerHTML = kedua;
+            document.getElementById("hasil_tambah").innerHTML = tambah;
+
+            document.getElementById("b1").innerHTML = pertama;
+            document.getElementById("b2").innerHTML = kedua;
+            document.getElementById("hasil_kurang").innerHTML = kurang;
+}
+    </script>
+</head>
+<body>
+    <form>
+        <table border="0px" cellspacing="1px">
+            <tr>
+                <td>Angka Pertama</td>
+                <td>:</td>
+                <td><input type="text" name="AngkaPertama" id="pertama"></td>
+            </tr>
+            <tr>
+                <td>Angka Kedua</td>
+                <td>:</td>
+                <td><input type="text" name="AngkaKedua" id="kedua"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Count" onclick="hitung()" ></td>
+            </tr>
+        </table>
+        <table cellspacing="0px" class="table2">
+            <tr>
+                <td id="a1"></td>
+                <td>+</td>
+                <td id="a2"></td>
+                <td>=</td>
+                <td id="hasil_tambah"></td>
+            </tr>
+            <tr>
+                <td id="b1"></td>
+                <td>-</td>
+                <td id="b2"></td>
+                <td>=</td>
+                <td id="hasil_kurang"></td>
+            </tr>
+        </table>        
+    </form>
+</body>
+</html>
