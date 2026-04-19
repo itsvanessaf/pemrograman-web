@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+    .counter {
+        display: flex;
+        width: fit-content;
+        margin-left: auto; 
+        border: 1px solid black;
+    }
+
+    td {
+        width: auto;
+    }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let deskripsi = document.getElementById('textArea');
+            let char = document.getElementById('char');
+
+            deskripsi.addEventListener("input", function () {
+                let content = this.value;
+                char.textContent = content.length;
+
+                content = content.trim();
+                console.log(content);
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>Judul</td>
+                <td>:</td>
+                <td><input type="text" name="Judul"></td>
+            </tr>
+            <tr>
+                <td>Deskripsi</td>
+                <td>:</td>
+                <td><textarea name="deskripsi" id="textArea" cols="20" rows="5" maxlength="256"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <span class="counter">
+                        <span id="char">0</span>/256
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

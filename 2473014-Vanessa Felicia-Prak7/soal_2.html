@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+        th {
+            background-color: #aabbaa;
+        }
+
+        tr.blue {
+            background-color: #aaccff;
+        }
+
+        tr.orange {
+            background-color: #ffccaa;
+        }
+
+        tr.green {
+            background-color: #ccffaa;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let baris1 = document.getElementById("brs1");
+            let baris2 = document.getElementById("brs2");
+            let baris3 = document.getElementById("brs3");
+            let baris4 = document.getElementById("brs4");
+            let baris5 = document.getElementById("brs5");
+
+            baris1.addEventListener("mouseover", function () {
+                document.getElementById("brs1").className="green";
+            });
+            baris1.addEventListener("mouseout", function () {
+                document.getElementById("brs1").className="blue"
+            });
+
+            baris2.addEventListener("mouseover", function () {
+                document.getElementById("brs2").className="green";
+            });
+            baris2.addEventListener("mouseout", function () {
+                document.getElementById("brs2").className="orange"
+            });
+
+            baris3.addEventListener("mouseover", function () {
+                document.getElementById("brs3").className="green";
+            });
+            baris3.addEventListener("mouseout", function () {
+                document.getElementById("brs3").className="blue"
+            });
+
+            baris4.addEventListener("mouseover", function () {
+                document.getElementById("brs4").className="green";
+            });
+            baris4.addEventListener("mouseout", function () {
+                document.getElementById("brs4").className="orange"
+            });
+
+            baris5.addEventListener("mouseover", function () {
+                document.getElementById("brs5").className="green";
+            });
+            baris5.addEventListener("mouseout", function () {
+                document.getElementById("brs5").className="blue"
+            });
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <th>Position</th>
+        <th>Programming Language</th>
+        <th>Ratings</th>
+        <tr class="blue" id="brs1">
+            <td>1</td>
+            <td>C</td>
+            <td>18.058%</td>
+        </tr>
+        <tr class="orange" id="brs2">
+            <td>2</td>
+            <td>Java</td>
+            <td>18.051%</td>
+        </tr>
+        <tr class="blue" id="brs3">
+            <td>3</td>
+            <td>C++</td>
+            <td>9.707%</td>
+        </tr>
+        <tr class="orange" id="brs4">
+            <td>4</td>
+            <td>PHP</td>
+            <td>9.662%</td>
+        </tr>
+        <tr class="blue" id="brs5">
+            <td>5</td>
+            <td>(Visual) Basic</td>
+            <td>6.392%</td>
+        </tr>
+    </table>
+</body>
+</html>

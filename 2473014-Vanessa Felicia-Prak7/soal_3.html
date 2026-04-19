@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <style>
+        .placeholder {
+            background-color: rgb(32, 151, 230);
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let array = [];
+            let operasi = document.getElementById("operasi");
+            let inputData = document.getElementById("data");
+            let hasil = document.getElementById("hasil");
+
+            window.btnAdd = function () {
+                let nilai = parseFloat(inputData.value);
+
+                if (!isNaN(nilai)) {
+                    array.push(nilai);
+                    inputData.value = "";
+                    hasilOperasi(); 
+                } else {
+                    alert("Mohon masukkan angka.");
+                    inputData.value = "";
+                    return;
+                }
+            }
+
+            window.hasilOperasi = function () {
+                let opr = operasi.value;
+
+                if (opr == "") {
+                    hasil.value = "";
+                    return;
+                }
+
+                else if (opr=="Display") {
+                    hasil.value = array.join(", ")
+                }
+
+                else if (opr=="Count") {
+                    hasil.value = array.length;
+                }
+
+                else if (opr=="Sum") {
+                    let sum = array.reduce((a,b) => a + b, 0);
+                    hasil.value = sum;
+                } 
+
+                else if (opr=="Average") {
+                    if (array.length == 0) {
+                        hasil.value = "";
+                    } else {
+                        let sum = array.reduce((a,b)=>a+b,0);
+                        hasil.value = sum / array.length;
+                    }
+                }
+
+                else if (opr=="Max") {
+                    if (array.length == 0) {
+                        hasil.value = "";
+                    } else {
+                        hasil.value = Math.max(...array);
+                    }
+                }
+
+                else if (opr=="Min"){
+                    if (array.length == 0) {
+                        hasil.value = "";
+                    } else {
+                        hasil.value = Math.min(...array);
+                    }
+                }
+
+                else if (opr=="Ganjil"){
+                    hasil.value = array.filter(x => x % 2 !== 0).join(", ");
+                }
+
+                else if (opr=="Genap") {
+                    hasil.value = array.filter(x => x % 2 === 0).join(", ");
+                }
+
+                else if (opr=="Hapus") {
+                    array = [];
+                    hasil.value = "";
+                    inputData.value = "";
+                    operasi.value = ""
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Data</td>
+            <td><input type="text" id="data"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Add" onclick="btnAdd()"></td>
+            <td>
+                <select name="operasi" id="operasi" onchange="hasilOperasi()">
+                    <option value="" disabled selected class="placeholder">Pilih Operasi</option>
+                    <option value="Display">Display</option>
+                    <option value="Count">Count</option>
+                    <option value="Sum">Sum</option>
+                    <option value="Average">Average</option>
+                    <option value="Max">Max</option>
+                    <option value="Min">Min</option>
+                    <option value="Ganjil">Ganjil</option>
+                    <option value="Genap">Genap</option>
+                    <option value="Hapus">Hapus</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hasil</td>
+            <td><input type="text" id="hasil" readonly></td>
+        </tr>
+    </table>
+</body>
+</html>
