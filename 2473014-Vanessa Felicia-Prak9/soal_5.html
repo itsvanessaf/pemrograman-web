@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#input").on("input", function(){
+                    let keyword = $("#input").val().toLowerCase();
+                    $("body div").css("color","black");
+
+                    $("body div").each(function(){
+
+                        let searched = $(this).text().toLowerCase();
+
+                        if(searched.includes(keyword) && keyword != ""){
+                            $(this).css("color", "red");
+                        }
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="input">
+    <div>Sun Microsystem</div>
+    <div>Apache Software Foundation</div>
+    <div>Oracle Coorporation</div>
+    <div>International Business Machines</div> 
+    <div>Microsoft Coorporation</div>
+    <div>Apple Inc</div>
+    <div>Sap Ag</div>
+    <div>Accenture</div>
+    <div>Computer Sciences Cooporation</div>
+    <div>Google</div>
+    <div>Softbank</div>
+    <div>Yahoo</div>
+</body>
+</html>

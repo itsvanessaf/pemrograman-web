@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        ol.main {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            background-color: white;
+            width: 500px;
+        }
+
+        li.title {
+            position: relative;
+            padding: 5px 15px;
+            background: hotpink;
+            color: white;
+            margin-right: 5px;
+            cursor: pointer;
+            width: 125px;
+            text-decoration: underline;
+        }
+
+        ol.item {
+            border: 3px solid hotpink;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            width: 150px;
+        }
+
+        ol.item li {
+            color: black;
+            padding: 5px;
+            text-decoration: underline;
+        }
+
+        ol.item li:hover {
+            background: whitesmoke;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            $("li.title ol").hide();
+
+            $("li.title").hover(function(){
+                    $("ol", this).show();
+                }, function(){
+                    $("ol", this).hide();
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <ol class="main">
+        <li class="title">jQuery
+            <ol class="item">
+                <li>Download</li>
+                <li>Documentation</li>
+                <li>Blog</li>
+            </ol>
+        </li>
+        <li class="title">Community
+            <ol class="item">
+                <li>Mailing List</li>
+                <li>Tutorials</li>
+                <li>Demos</li>
+                <li>Plugins</li>
+            </ol>
+        </li>
+        <li class="title">Development
+            <ol class="item">
+                <li>Source Code</li>
+                <li>Bug Tracking</li>
+                <li>Recent Changes</li>
+            </ol>
+        </li>
+    </ol>
+</body>
+</html>
