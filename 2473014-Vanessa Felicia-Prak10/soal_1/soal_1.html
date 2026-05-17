@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2473014-Vanessa Felicia</title>
+    <script src="../jquery.js"></script>
+    <style>
+        div {
+            border: 1px solid black;
+            width: 200px;
+            padding: 10px;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+		$(document).ready(function(){
+            $("#search").click(function(){
+                let pilihan = $(":radio[name='filter']:checked").val();
+                let fileJSON = "";
+
+                if (pilihan == "kelasA") {
+                    fileJSON = "nilaiA.js"
+                } else if (pilihan == "kelasB") {
+                    fileJSON = "nilaiB.js"
+                } else {
+                    fileJSON = "nilai.js";
+                }
+
+            $.getJSON(fileJSON, function(data){
+
+                let isiData = "";
+
+                $.each(data.nilai, function(i, item){
+
+                    isiData += `
+                        <tr>
+                            <td>${item.nrp}</td>
+                            <td>${item.nama}</td>
+                            <td>${item.kelas}</td>
+                            <td>${item.nilaiakhir}</td>
+                        </tr>
+                    `;
+                });
+
+                $("#tabel tbody").html(isiData);
+                $("#tabel tbody tr:odd").css("background-color", "#FFFFCC");
+                $("#tabel tbody tr:even").css("background-color", "#CCFFAA");
+                });
+            });
+		});
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="radio" id="all" name="filter" value="all">
+            <label for="all">All</label><br>
+            <input type="radio" id="kelasA" name="filter" value="kelasA">
+            <label for="kelasA">Kelas A</label><br>
+            <input type="radio" id="kelasB" name="filter" value="kelasB">
+            <label for="kelasB">Kelas B</label><br>
+            <input type="button" id="search" value="Search">
+        </div>
+        <br>
+        <table border="1px" cellspacing="0px" cellpadding="0px" id="tabel">
+            <thead>
+                <tr>
+                    <th>NRP</th>
+                    <th>NAMA</th>
+                    <th>KELAS</th>
+                    <th>NILAI AKHIR</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
