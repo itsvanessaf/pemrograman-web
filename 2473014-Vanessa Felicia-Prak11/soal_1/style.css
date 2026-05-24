@@ -1,0 +1,29 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.judul {
+   background-color: navy;
+   width: 100%;
+   font-size: 100px;
+   color: white;
+   text-align: center;
+   font-weight: normal;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 5px;
+}
+
+hr {
+    height: 3px;
+    background-color: rgb(208, 206, 206);
+    border: none;
+}
